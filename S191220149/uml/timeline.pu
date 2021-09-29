@@ -1,0 +1,19 @@
+@startuml
+
+line -> line : 创建新line
+
+gourd -> line : 将gourds放入line
+
+geezer -> geezer : 获得Geezer对象
+
+bubblesorter -> sorter : 将bubblesorter作为方法传入sorter
+
+sorter -> geezer : 将sorter作为参数传递给geezer的方法
+
+line -> geezer : 将line作为参数传递给geezer的方法
+
+geezer -> geezer : 对line进行排序，得到排序的结果
+
+geezer -> result : 将排序结果输出到result.txt
+
+@enduml

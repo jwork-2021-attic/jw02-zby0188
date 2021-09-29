@@ -1,0 +1,88 @@
+@startuml
+
+interface Sorter {
+    + load(int[] elements)
+    + sort()
+    + getPlan()
+}
+
+class BubbleSorter{
+    - int[] a
+    + load(int[] a)
+    - swap(int i, int j)
+    - String plan
+    + sort()
+    + getPlan()
+}
+
+class SelectionSorter{
+    - int[] a
+    + load(int[] a)
+    - swap(int i, int j)
+    - String plan
+    + sort()
+    + getPlan()
+}
+
+class Snake{
+    {static} - Snake theSnake
+    {static} + getTheSnake()
+    - Snake()
+    - Sorter sort
+    + setSort(Sorter sort)
+    + lineup(Line line)
+    - parsePlan(String plan)
+    - execute(String step)
+}
+
+interface Linable{
+    + setPosition(Position position)
+    + getPosition()
+    + getValue()
+}
+
+class Monster{
+    - int r 
+    - int g 
+    - int b 
+    - int bank
+    - {static} Monster[] monsters
+    - Position position 
+    ~ Gourd(int r, int g, int b, int rank)
+    {static} - randomList(int num)
+    {static} + generateMonsters(int num)
+    {static} + getMonsters()
+    {static} + getMonsterByRank(int rank)
+    + rank()
+    + toString()
+    + setPosition(Position position)
+    + getPosition()
+    + swapPosition(Gourd another)
+    + getValue()
+}
+
+class Line{
+    + Line(int length)
+    - Position[] positions
+    + put(Linable linable, int i)
+    + get(int i)
+    + toString()
+    + toArray()
+}
+
+class Position{
+    - Linable linable
+    ~ Position(Lineable linable)
+    + setLinable(Linale linale)
+}
+
+class BubbleSorter implements Sorter 
+class SelectionSorter implements Sorter
+class Monster implements Linable 
+Monster o-- Position
+Snake *-- Sorter
+Line o-- Position
+Line +-- Position
+Position o-- Linable
+
+@enduml
